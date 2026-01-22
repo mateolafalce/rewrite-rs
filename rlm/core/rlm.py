@@ -250,8 +250,8 @@ class RLM:
                 if final_answer is not None:
                     time_end = time.perf_counter()
                     usage = lm_handler.get_usage_summary()
-                    self.verbose.print_final_answer(final_answer)
                     self.verbose.print_summary(i + 1, time_end - time_start, usage.to_dict())
+                    self.verbose.print_final_answer(final_answer)
 
                     # Store message history in persistent environment
                     if self.persistent and isinstance(environment, SupportsPersistence):
@@ -277,8 +277,8 @@ class RLM:
             time_end = time.perf_counter()
             final_answer = self._default_answer(message_history, lm_handler)
             usage = lm_handler.get_usage_summary()
-            self.verbose.print_final_answer(final_answer)
             self.verbose.print_summary(self.max_iterations, time_end - time_start, usage.to_dict())
+            self.verbose.print_final_answer(final_answer)
 
             # Store message history in persistent environment
             if self.persistent and isinstance(environment, SupportsPersistence):

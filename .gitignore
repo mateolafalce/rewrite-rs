@@ -3,6 +3,9 @@
 
 # Logs
 logs/
+snake/
+vibora/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
