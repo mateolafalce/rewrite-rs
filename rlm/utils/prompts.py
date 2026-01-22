@@ -80,6 +80,62 @@ Think step by step carefully, plan, and execute this plan immediately in your re
 """
 )
 
+# Additional instruction for code conversion tasks
+CODE_CONVERSION_INSTRUCTION = """
+CRITICAL INSTRUCTIONS FOR CODE CONVERSION (C to Rust):
+
+When you have finished converting the code, you MUST:
+
+1. **Provide the COMPLETE converted code** in a markdown code block with ```rust
+2. **Include ALL necessary code** - the FULL working program, not snippets
+3. **Include all use statements, structs, enums, functions, and the main function**
+4. **Also list the Cargo.toml dependencies** in a separate ```toml block
+
+YOUR FINAL ANSWER MUST CONTAIN:
+
+1. A complete ```rust code block with the full program:
+```rust
+use std::...;
+use ncurses::*;  // or pancurses, etc.
+
+// All structs, enums, constants...
+
+fn main() {
+    // Complete implementation
+}
+```
+
+2. A ```toml block with Cargo.toml dependencies:
+```toml
+[dependencies]
+ncurses = "5"
+rand = "0.8"
+```
+
+CRITICAL RULES:
+- Do NOT use REPL code in your final answer - just return the converted Rust code
+- Do NOT use f-strings or Python code in your final answer
+- Your final answer is the ACTUAL Rust code, ready to compile
+- Include the COMPLETE program, not a simplified example
+- The code must compile with `cargo build`
+- For ncurses programs: use the `ncurses` crate, not `pancurses`
+
+When you're ready to give your final answer, use:
+FINAL(
+
+```rust
+// Your complete Rust code here
+```
+
+```toml
+[dependencies]
+ncurses = "5"
+rand = "0.8"
+```
+
+)
+"""
+
 
 def build_rlm_system_prompt(
     system_prompt: str,
